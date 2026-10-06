@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đăng nhập · HVS Agency Ops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/hvs.css">
+<style>
+  .login { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); background: var(--surface); }
+  .login__form { display: flex; flex-direction: column; justify-content: center; padding: 48px clamp(24px, 6vw, 96px); gap: 32px; }
+  .login__form form { display: flex; flex-direction: column; gap: 18px; max-width: 400px; width: 100%; }
+  .login__form h1 { font-size: 28px; font-weight: 700; letter-spacing: -.02em; }
+  .login__form .lead { color: var(--ink-3); margin-top: 6px; }
+  .login__form .input { height: 46px; }
+  .login__form .btn { min-height: 46px; }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+  .row label { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); cursor: pointer; }
+  .row input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--hvs-blue); }
+  .pw { position: relative; }
+  .pw .input { width: 100%; padding-right: 72px; }
+  .pw button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--hvs-blue); font-weight: 600; font-size: 13px; padding: 8px; cursor: pointer; border-radius: 6px; }
+  .err { display: none; background: var(--danger-bg); color: var(--danger); padding: 10px 12px; border-radius: 8px; font-size: 13px; }
+  .err.is-on { display: block; }
+  .foot { font-size: 12.5px; color: var(--ink-3); }
+
+  .login__brand { position: relative; overflow: hidden; background: var(--hvs-navy); color: #fff; display: flex; flex-direction: column; justify-content: flex-end; padding: 56px clamp(32px, 5vw, 80px); gap: 28px; }
+  .login__brand svg.waves { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .login__brand h2 { position: relative; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.2; font-weight: 700; font-style: italic; letter-spacing: -.02em; max-width: 18ch; }
+  .login__brand ul { position: relative; list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 560px; }
+  .login__brand li { border-top: 1px solid rgba(255,255,255,.22); padding-top: 12px; font-size: 13px; color: #C9DCEC; }
+  .login__brand li b { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; }
+
+  @media (max-width: 900px) {
+    .login { grid-template-columns: 1fr; }
+    .login__brand { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="login">
+  <section class="login__form">
+    <img src="assets/img/hvs-logo.png" alt="HVS Group" width="170" height="34" style="width:170px;height:auto">
+    <form id="loginForm" novalidate>
+      <div>
+        <h1>Đăng nhập</h1>
+        <p class="lead">Dùng tài khoản công ty để vào hệ thống đại lý tàu biển.</p>
+      </div>
+      <div class="err" id="err" role="alert">Nhập email và mật khẩu để đăng nhập.</div>
+      <label class="field">Email
+        <input class="input" type="email" name="email" autocomplete="username" placeholder="ten@haivanship.com" required>
+      </label>
+      <div class="field">
+        <label for="pw">Mật khẩu</label>
+        <div class="pw">
+          <input class="input" id="pw" type="password" name="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required>
+          <button type="button" id="togglePw" aria-pressed="false">Hiện</button>
+        </div>
+      </div>
+      <div class="row">
+        <label><input type="checkbox" checked> Ghi nhớ đăng nhập</label>
+        <a href="#" data-toast="Liên hệ Admin chi nhánh để đặt lại mật khẩu.">Quên mật khẩu?</a>
+      </div>
+      <button class="btn btn--primary" type="submit">Đăng nhập</button>
+      <p class="foot">Sau khi đăng nhập, bạn vào thẳng Kế hoạch tàu tháng.</p>
+    </form>
+  </section>
+
+  <aside class="login__brand" aria-hidden="true">
+    <svg class="waves" viewBox="0 0 800 900" preserveAspectRatio="xMidYMid slice">
+      <g fill="none" stroke-linecap="round">
+        <path d="M-40 260 C 180 140, 420 140, 860 300" stroke="#0170C1" stroke-width="44" opacity=".55"/>
+        <path d="M-40 340 C 200 230, 440 230, 860 380" stroke="#3EC0EC" stroke-width="18" opacity=".7"/>
+        <path d="M-40 400 C 220 300, 460 300, 860 440" stroke="#3EC0EC" stroke-width="8" opacity=".45"/>
+        <path d="M-40 444 C 240 352, 480 352, 860 486" stroke="#3EC0EC" stroke-width="3" opacity=".35"/>
+      </g>
+    </svg>
+    <h2>Kế hoạch tàu, chứng từ và PDA/FDA trong một nơi.</h2>
+    <ul>
+      <li><b>Kế hoạch tháng</b>Lịch tàu theo cảng, terminal</li>
+      <li><b>Chứng từ</b>Chụp, OCR, xác nhận</li>
+      <li><b>PDA → FDA</b>Gửi FDA ≤ 3 ngày sau ATD</li>
+    </ul>
+  </aside>
+</div>
+
+<script src="assets/js/app.js"></script>
+<script>
+  const form = document.getElementById('loginForm');
+  const pw = document.getElementById('pw');
+  const tg = document.getElementById('togglePw');
+  tg.addEventListener('click', () => {
+    const show = pw.type === 'password';
+    pw.type = show ? 'text' : 'password';
+    tg.textContent = show ? 'Ẩn' : 'Hiện';
+    tg.setAttribute('aria-pressed', String(show));
+  });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const ok = form.email.value.trim() && form.password.value;
+    document.getElementById('err').classList.toggle('is-on', !ok);
+    if (ok) location.href = 'ke-hoach-thang.html';
+  });
+</script>
+</body>
+</html>
