@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tài khoản của tôi</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#eef2f6}
+a{color:#0170C1}a:hover{color:#015FA4}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;font-weight:600;color:#4D6278;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:12px 16px;border-bottom:1px solid #e2e8f0;background:#fff;white-space:nowrap}
+td{padding:14px 16px;border-bottom:1px solid #eef2f6;vertical-align:middle;color:#2B4058;font-variant-numeric:tabular-nums}
+tr:hover td{background:#f8fafc}
+tbody tr:last-child td{border-bottom:none}
+input::placeholder{color:#4D6278}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px}
+.shell{display:grid;grid-template-columns:280px minmax(0,1fr)}
+@media (max-width:760px){.shell{grid-template-columns:1fr}.side{display:none}}
+span[style*="border-radius:999px"]::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.7;margin-right:6px;flex:none}
+button,select,input,textarea{font-family:inherit}
+</style>
+
+<link rel="stylesheet" href="assets/hvs-theme.css">
+<script src="assets/hvs-app.js" defer></script>
+</head>
+<body>
+<div class="shell" style="min-height:100vh;background:#eef2f6;font-family:'Inter', system-ui, sans-serif;color:#0f1c29;font-size:14px">
+<nav class="side" aria-label="Điều hướng chính" style="background:#062B4D;border-right:none;padding:24px 12px;display:flex;flex-direction:column;gap:2px">
+<div class="brand"><div class="brand__plate"><img src="assets/hvs-logo.png" alt="HVS Group" width="477" height="94"></div><div class="brand__sub">Agency Ops</div></div>
+<div class="nav-label">Vận hành</div><a class="nav-link" href="KeHoachThang.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg><span>Kế hoạch tàu tháng</span></a><a class="nav-link" href="Main.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg><span>Việc của tôi</span></a><a class="nav-link" href="XacNhanChungTu.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><span>Chứng từ</span></a><div class="nav-label">Quản lý</div><a class="nav-link" href="ChiSo.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg><span>Chỉ số quản lý</span></a><a class="nav-link" href="QuanTri.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 3.5a4 4 0 0 1 0 7.5M22 21a7 7 0 0 0-4-6.3"/></svg><span>Quản trị &amp; phân công</span></a><a class="nav-link" href="MauFDA.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Mẫu PDA / FDA</span></a>
+<div class="nav-user" style="margin-top:auto;border-top:1px solid rgba(255,255,255,.1);padding:20px 12px 0;display:flex;gap:10px;align-items:center"><a class="nav-user__link is-active" href="TaiKhoan.html" title="Tài khoản của tôi" aria-current="page"><div style="width:40px;height:40px;border-radius:50%;background:#0170C1;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">M</div><div><div style="font-size:14px;font-weight:600;color:#fff">Minh</div><div style="font-size:13px;color:#9DB4CC">PIC · Chi nhánh Nghi Sơn</div></div></a><a class="nav-logout" href="index.html" data-logout aria-label="Đăng xuất" title="Đăng xuất"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></a></div>
+</nav>
+<div style="display:flex;flex-direction:column;min-width:0">
+<header class="topbar" style="min-height:64px;display:flex;align-items:center;gap:16px;padding:0 32px;background:#fff;border-bottom:1px solid #e2e8f0"><div style="font-size:14px;color:#4D6278;white-space:nowrap">HVS Group · Agency <span style="margin:0 4px">/</span> <span style="font-weight:600;color:#0f1c29">Tài khoản của tôi</span></div>
+<label style="flex:1;max-width:320px;margin-left:auto;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);border-radius:12px;background:#f8fafc;color:#4D6278"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" aria-label="Tìm kiếm" placeholder="Tìm tàu, IMO, voyage, mã chuyến…" style="border:none;outline:none;font:inherit;font-size:14px;flex:1;background:transparent"></label>
+<button type="button" aria-label="Thông báo, 4 chưa đọc" style="position:relative;width:40px;height:40px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;display:flex;align-items:center;justify-content:center;color:#0f1c29;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><span style="position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;border-radius:9px;background:#9a5b00;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center">4</span></button>
+<a href="MoHoSoChuyen.html" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 16px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;background:#0170C1;color:#fff;border:1px solid #0170C1">+ Tạo chuyến mới</a>
+</header>
+<main style="padding:32px 32px 48px;display:flex;flex-direction:column;gap:20px;min-width:0">
+
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><h1 style="margin:0;font-size:26px;font-weight:700;letter-spacing:-0.01em;line-height:1.2">Tài khoản của tôi</h1><p style="margin:6px 0 0;color:#4D6278;font-size:14px">Thông tin cá nhân, quyền truy cập và cài đặt thông báo.</p></div></div>
+
+<section class="profile-hero" style="background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);border-radius:12px;display:flex;flex-direction:column;min-width:0;padding:24px;flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap">
+<div class="profile-avatar" aria-hidden="true">M</div>
+<div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:220px">
+<h2 style="margin:0;font-size:22px;font-weight:700">Minh</h2>
+<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;line-height:18px;white-space:nowrap;background:#E3F1FB;border:1px solid #B5DBF4;color:#015FA4">PIC</span><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;line-height:18px;white-space:nowrap;background:#fff;border:1px solid #e2e8f0;color:#4D6278">Chi nhánh Nghi Sơn</span><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;line-height:18px;white-space:nowrap;background:#fff;border:1px solid #e2e8f0;color:#4D6278">Phạm vi: Của tôi</span></div>
+<span style="color:#4D6278;font-size:13px">[email công ty] · [chức vụ]</span>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#doi-mat-khau" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 16px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;background:#fff;color:#0f1c29;border:1px solid #e2e8f0">Đổi mật khẩu</a></div>
+</section>
+
+<div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;align-items:start;min-width:0" class="profile-grid">
+<div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+
+<section style="background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);border-radius:12px;display:flex;flex-direction:column;min-width:0;"><header style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #e2e8f0"><h2 style="margin:0;font-size:16px;font-weight:600">Thông tin cá nhân</h2><div style="display:flex;gap:8px;align-items:center"></div></header><form style="padding:18px 20px;display:flex;flex-direction:column;gap:14px;min-width:0" data-toast-form="Đã lưu thông tin cá nhân.">
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px">
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0">Họ tên<input type="text" value="Minh" style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#fff;width:100%" autocomplete="name"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0">Email công ty<input type="email" placeholder="[email công ty]" style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#f8fafc;color:#4D6278;width:100%" readonly></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0">Số điện thoại<input type="tel" placeholder="[số điện thoại]" style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#fff;width:100%" autocomplete="tel"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0">Chức vụ (từ Core)<input type="text" placeholder="[chức vụ]" style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#f8fafc;color:#4D6278;width:100%" readonly></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0">Chi nhánh<input type="text" value="Nghi Sơn" style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#f8fafc;color:#4D6278;width:100%" readonly></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0">Múi giờ hiển thị<select style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#fff;width:100%"><option>GMT+7 · Hà Nội</option></select></label>
+</div>
+<span style="color:#4D6278;font-size:13px">Email, chức vụ và chi nhánh lấy từ Core; Admin sửa ở Quản trị.</span>
+<div><button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 16px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;background:#0170C1;color:#fff;border:1px solid #0170C1">Lưu thay đổi</button></div>
+</form></section>
+
+<div id="doi-mat-khau" style="scroll-margin-top:84px">
+<section style="background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);border-radius:12px;display:flex;flex-direction:column;min-width:0;"><header style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #e2e8f0"><h2 style="margin:0;font-size:16px;font-weight:600">Đổi mật khẩu</h2><div style="display:flex;gap:8px;align-items:center"></div></header><form style="padding:18px 20px;display:flex;flex-direction:column;gap:14px;min-width:0" data-validate data-done="Đã đổi mật khẩu."><input type="text" name="username" value="Minh" autocomplete="username" hidden>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0"><span class="lbl">Mật khẩu hiện tại<span class="req" aria-hidden="true"> *</span></span><input type="password" id="pw-cur" name="current-password" required style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#fff;width:100%" autocomplete="current-password"></label>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px">
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0"><span class="lbl">Mật khẩu mới<span class="req" aria-hidden="true"> *</span></span><input type="password" id="pw-new" name="new-password" required minlength="8" pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,}" data-error-msg="Tối thiểu 8 ký tự, gồm chữ và số" aria-describedby="pw-rule" style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#fff;width:100%" autocomplete="new-password"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;min-width:0"><span class="lbl">Nhập lại mật khẩu mới<span class="req" aria-hidden="true"> *</span></span><input type="password" id="pw-confirm" name="confirm-password" required data-match="#pw-new" style="height:42px;box-sizing:border-box;padding:0 12px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px;background:#fff;width:100%" autocomplete="new-password"></label>
+</div>
+<span id="pw-rule" style="color:#4D6278;font-size:13px">Ít nhất 8 ký tự, có chữ và số.</span>
+<div><button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 16px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;background:#0170C1;color:#fff;border:1px solid #0170C1">Cập nhật mật khẩu</button></div>
+</form></section>
+</div>
+
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+
+<section style="background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);border-radius:12px;display:flex;flex-direction:column;min-width:0;"><header style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #e2e8f0"><h2 style="margin:0;font-size:16px;font-weight:600">Quyền truy cập</h2><div style="display:flex;gap:8px;align-items:center"></div></header><div style="padding:18px 20px;display:flex;flex-direction:column;gap:14px;min-width:0">
+<dl style="margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px">
+<div><dt style="font-size:13px;color:#4D6278;margin-bottom:2px">Vai trò</dt><dd style="margin:0;font-size:14px;font-weight:500">PIC</dd></div>
+<div><dt style="font-size:13px;color:#4D6278;margin-bottom:2px">Phạm vi dữ liệu</dt><dd style="margin:0;font-size:14px;font-weight:500">Của tôi</dd></div>
+</dl>
+<div style="display:flex;flex-direction:column">
+<span style="color:#4D6278;font-size:13px;margin-bottom:6px">Principal được phân công</span>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #e9eef3"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Oldendorff Carriers</span><span style="color:#4D6278;font-size:13px">01/09/2026 → —</span></div><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;line-height:18px;white-space:nowrap;background:#E3F1FB;border:1px solid #B5DBF4;color:#015FA4">Chính</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #e9eef3"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Winning Shipping</span><span style="color:#4D6278;font-size:13px">01/09/2026 → —</span></div><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;line-height:18px;white-space:nowrap;background:#E3F1FB;border:1px solid #B5DBF4;color:#015FA4">Chính</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #e9eef3"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">MAERSK</span><span style="color:#4D6278;font-size:13px">01/07/2026 → —</span></div><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;line-height:18px;white-space:nowrap;background:#fff;border:1px solid #e2e8f0;color:#4D6278">Dự phòng</span></div>
+</div>
+<span style="color:#4D6278;font-size:13px">Trưởng phòng phân công principal; Admin gán vai trò và phạm vi.</span>
+</div></section>
+
+<section style="background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);border-radius:12px;display:flex;flex-direction:column;min-width:0;"><header style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #e2e8f0"><h2 style="margin:0;font-size:16px;font-weight:600">Thông báo</h2><div style="display:flex;gap:8px;align-items:center"><span style="color:#4D6278;font-size:13px">Tự động lưu</span></div></header><div style="padding:8px 20px 12px;display:flex;flex-direction:column;min-width:0">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0;border-top:1px solid #e9eef3"><label for="n-eta" style="display:flex;flex-direction:column;gap:2px;cursor:pointer"><span style="font-size:14px;font-weight:500">ETA / ETB / ETD thay đổi</span><span style="color:#4D6278;font-size:13px">Chuyến của tôi</span></label><input class="switch" type="checkbox" role="switch" id="n-eta" checked></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0;border-top:1px solid #e9eef3"><label for="n-due" style="display:flex;flex-direction:column;gap:2px;cursor:pointer"><span style="font-size:14px;font-weight:500">Việc sắp đến hạn, quá hạn</span><span style="color:#4D6278;font-size:13px">Tính theo ETA hiện hành</span></label><input class="switch" type="checkbox" role="switch" id="n-due" checked></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0;border-top:1px solid #e9eef3"><label for="n-doc" style="display:flex;flex-direction:column;gap:2px;cursor:pointer"><span style="font-size:14px;font-weight:500">Chứng từ chờ xác nhận</span><span style="color:#4D6278;font-size:13px">Chụp từ mobile, tải lên</span></label><input class="switch" type="checkbox" role="switch" id="n-doc" checked></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0;border-top:1px solid #e9eef3"><label for="n-shift" style="display:flex;flex-direction:column;gap:2px;cursor:pointer"><span style="font-size:14px;font-weight:500">Nhận bàn giao ca</span><span style="color:#4D6278;font-size:13px">Khi có người bàn giao việc cho tôi</span></label><input class="switch" type="checkbox" role="switch" id="n-shift" checked></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 0;border-top:1px solid #e9eef3"><label for="n-mail" style="display:flex;flex-direction:column;gap:2px;cursor:pointer"><span style="font-size:14px;font-weight:500">Gửi bản tóm tắt qua email</span><span style="color:#4D6278;font-size:13px">Đầu ca, 07:00</span></label><input class="switch" type="checkbox" role="switch" id="n-mail"></div>
+</div></section>
+
+<section style="background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);border-radius:12px;display:flex;flex-direction:column;min-width:0;"><header style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #e2e8f0"><h2 style="margin:0;font-size:16px;font-weight:600">Phiên đăng nhập</h2><div style="display:flex;gap:8px;align-items:center"></div></header><div style="padding:8px 20px 18px;display:flex;flex-direction:column;gap:12px;min-width:0">
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Web · trình duyệt này</span><span style="color:#4D6278;font-size:13px">Đang dùng</span></div><span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;line-height:18px;white-space:nowrap;background:#dcf5ea;border:1px solid #bfe9d6;color:#0f6b4f">Hiện tại</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #e9eef3"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">Mobile app</span><span style="color:#4D6278;font-size:13px">[thiết bị] · [lần cuối]</span></div></div>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><a href="index.html" data-logout style="display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 16px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;background:#fff;color:#b42318;border:1px solid #f6c9c9"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Đăng xuất</a><button type="button" data-confirm="Đăng xuất khỏi các thiết bị khác?" data-confirm-body="Các phiên trên thiết bị khác (mobile app…) sẽ phải đăng nhập lại. Phiên trên trình duyệt này vẫn giữ." data-confirm-ok="Đăng xuất thiết bị khác" data-confirm-tone="danger" data-done="Đã đăng xuất khỏi các thiết bị khác." style="display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 16px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;background:#fff;color:#0f1c29;border:1px solid #e2e8f0">Đăng xuất thiết bị khác</button></div>
+</div></section>
+
+</div>
+</div>
+
+</main>
+</div>
+</div>
+
+</body>
+</html>

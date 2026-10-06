@@ -4,27 +4,214 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Đăng nhập</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#062B4D}
-a{color:#0170C1}
-input::placeholder{color:#64748b}
-</style>
+  /* Option 3 — "bến cảng ban ngày": light sky, harbor horizon built from the logo swoosh. */
+  :root {
+    --sky: #F3F9FD; --sky-2: #DDF0FA;
+    --blue: #0170C1; --blue-600: #015FA4; --cyan: #3EC0EC;
+    --navy: #062B4D; --ink: #0A1F33; --ink-3: #4D6278; --line: #8394A6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh; display: flex; flex-direction: column;
+    font-family: 'Inter', system-ui, sans-serif; color: var(--ink); font-size: 15px; line-height: 1.5;
+    background: linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 100%);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
+  /* ---------- top ---------- */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 28px clamp(16px, 5vw, 72px) 0; }
+  .top img { width: 150px; height: auto; display: block; }
+  .top a { color: var(--ink-3); font-size: 14px; text-decoration: none; }
+  .top a:hover { color: var(--blue-600); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- stage ---------- */
+  .stage {
+    flex: 1; width: 100%; max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 420px); gap: clamp(32px, 6vw, 96px); align-items: center;
+    padding: 40px clamp(16px, 5vw, 72px) 56px;
+  }
+  .greet h1 {
+    margin: 0; color: var(--navy);
+    font-size: clamp(44px, 6.4vw, 88px); font-weight: 800; font-style: italic;
+    letter-spacing: -.04em; line-height: .98;
+  }
+  .greet p { margin: 22px 0 0; max-width: 34ch; color: var(--ink-3); font-size: 17px; }
+  .greet .today { display: block; margin-top: 4px; color: var(--ink); font-weight: 600; }
+
+  /* ---------- form ---------- */
+  form {
+    background: #fff; border-radius: 20px; padding: 32px;
+    box-shadow: 0 1px 2px rgba(6, 43, 77, .06), 0 24px 48px -24px rgba(6, 43, 77, .28);
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  form h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+  form h2 + p { margin: 4px 0 0; color: var(--ink-3); font-size: 14px; }
+  .field { display: flex; flex-direction: column; gap: 7px; font-size: 14px; font-weight: 600; }
+  .input {
+    width: 100%; height: 48px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 10px;
+    font: inherit; font-size: 16px; font-weight: 400; color: var(--ink); background: #fff;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .input::placeholder { color: #4D6278; }
+  .input:hover { border-color: #5E7389; }
+  .input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(1, 112, 193, .14); }
+  .input[aria-invalid="true"] { border-color: #B42318; }
+  .hint { font-size: 13px; font-weight: 500; color: #B42318; min-height: 0; }
+  .hint:empty { display: none; }
+  .pw { position: relative; }
+  .pw .input { padding-right: 52px; }
+  .pw button {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    border: 0; background: none; color: var(--blue); font: inherit; font-size: 14px; font-weight: 600;
+    min-width: 40px; min-height: 40px; padding: 0; border-radius: 8px; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .pw button svg { width: 20px; height: 20px; }
+  .pw button[aria-pressed="true"] .eye, .pw button[aria-pressed="false"] .eye-off { display: none; }
+  .pw button:hover { background: #EAF4FC; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; }
+  .row label { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); cursor: pointer; }
+  .row input { width: 18px; height: 18px; accent-color: var(--blue); margin: 0; }
+  .row a { color: var(--blue); text-decoration: none; font-weight: 500; }
+  .row a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .submit {
+    min-height: 50px; border: 0; border-radius: 10px; cursor: pointer;
+    background: var(--blue); color: #fff; font: inherit; font-size: 16px; font-weight: 700;
+    box-shadow: 0 1px 2px rgba(1, 112, 193, .3), 0 10px 22px -10px rgba(1, 112, 193, .7);
+    transition: background-color .15s, transform .15s;
+  }
+  .submit:hover { background: var(--blue-600); transform: translateY(-1px); }
+  .submit:active { transform: none; }
+  .help { margin: 0; color: var(--ink-3); font-size: 13px; text-align: center; }
+
+  /* ---------- harbor horizon ---------- */
+  .harbor { position: relative; height: clamp(150px, 24vh, 260px); flex: none; overflow: hidden; }
+  .harbor svg { position: absolute; inset: auto 0 0 0; width: 100%; height: 100%; display: block; }
+  .ship { animation: dock 2.6s cubic-bezier(.22, .8, .3, 1) .2s both; }
+  @keyframes dock { from { transform: translateX(-46%); } to { transform: none; } }
+
+  @media (max-width: 880px) {
+    .top img { width: 128px; }
+    .top .lbl { display: none; }
+    .stage { grid-template-columns: 1fr; padding-top: 24px; gap: 28px; }
+    .greet p { font-size: 16px; margin-top: 14px; }
+    form { padding: 24px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .ship { animation: none; }
+  }
+</style>
 </head>
 <body>
-<div style="min-height:100vh;background:#062B4D;font-family:'Be Vietnam Pro', system-ui, sans-serif;color:#0f1c29;font-size:14px;display:flex;align-items:center;justify-content:center;padding:48px 16px;box-sizing:border-box">
-<main style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:24px">
-<div style="display:flex;flex-direction:column;gap:8px;padding:0 4px 24px"><div style="background:#fff;border-radius:10px;padding:10px 14px;display:flex;align-items:center;max-width:220px"><img src="assets/hvs-logo.png" alt="HVS Group" width="477" height="94" style="width:100%;height:auto;display:block"></div><div style="font-size:11px;color:#94a3b8;padding:0 8px">Agency Ops · Web</div></div>
-<form style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 2px rgba(15,28,41,.04),0 1px 3px rgba(15,28,41,.06);padding:28px;display:flex;flex-direction:column;gap:18px">
-<div><h1 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.01em">Đăng nhập</h1><p style="margin:6px 0 0;color:#64748b;font-size:14px">Dùng tài khoản công ty để vào hệ thống.</p></div>
-<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Email<input type="email" placeholder="ten@haivanship.com" style="height:44px;box-sizing:border-box;padding:0 14px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px"></label>
-<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600">Mật khẩu<input type="password" placeholder="••••••••" style="height:44px;box-sizing:border-box;padding:0 14px;border:1px solid #e2e8f0;border-radius:8px;font:inherit;font-weight:400;font-size:14px"></label>
-<a href="KeHoachThang.html" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;background:#0170C1;color:#fff">Đăng nhập</a>
-<span style="color:#64748b;font-size:12px;text-align:center">Sau khi đăng nhập: Kế hoạch tàu tháng.</span>
-</form>
+
+<header class="top">
+  <img src="assets/hvs-logo.png" alt="HVS Group" width="477" height="94">
+  <a href="tel:02253888999"><span class="lbl">Cần hỗ trợ? </span>0225 3888 999</a>
+</header>
+
+<main class="stage">
+  <div class="greet">
+    <h1 id="hello">Chào buổi sáng.</h1>
+    <p><span class="today" id="today">Thứ Ba, 06/10/2026</span>Đăng nhập để xem kế hoạch tàu và việc cần làm trong ca của bạn.</p>
+  </div>
+
+  <form id="f" novalidate>
+    <div>
+      <h2>Đăng nhập</h2>
+      <p>Dùng email công ty HVS.</p>
+    </div>
+    <label class="field">Email
+      <input class="input" id="email" type="email" autocomplete="username" placeholder="ten@haivanship.com" aria-describedby="email-hint">
+      <span class="hint" id="email-hint"></span>
+    </label>
+    <div class="field">
+      <label for="pw">Mật khẩu</label>
+      <div class="pw">
+        <input class="input" id="pw" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" aria-describedby="pw-hint">
+        <button type="button" id="toggle" aria-controls="pw" aria-pressed="false" aria-label="Hiện mật khẩu" title="Hiện mật khẩu"><svg class="eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A9.8 9.8 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6C3.8 8.4 2 12 2 12s3.6 7 10 7a9.6 9.6 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button>
+      </div>
+      <span class="hint" id="pw-hint"></span>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" checked> Ghi nhớ trên máy này</label>
+      <a href="mailto:it@haivanship.com?subject=Qu%C3%AAn%20m%E1%BA%ADt%20kh%E1%BA%A9u">Quên mật khẩu?</a>
+    </div>
+    <button class="submit" type="submit">Đăng nhập</button>
+    <p class="help">Chưa có tài khoản? Nhờ quản lý chi nhánh cấp quyền.</p>
+  </form>
 </main>
+
+<div class="harbor" aria-hidden="true">
+  <svg viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice" fill="none">
+    <!-- quay cranes -->
+    <g fill="#0A3A66">
+      <rect x="1060" y="40" width="8" height="160"/><rect x="1120" y="40" width="8" height="160"/>
+      <rect x="980" y="40" width="250" height="10"/><rect x="1060" y="96" width="68" height="7"/>
+      <path d="M1064 40 L1124 6 L1128 10 L1068 46 Z"/>
+      <rect x="1250" y="70" width="7" height="130"/><rect x="1304" y="70" width="7" height="130"/>
+      <rect x="1180" y="70" width="210" height="9"/><path d="M1253 70 L1307 40 L1310 44 L1256 76 Z"/>
+    </g>
+    <rect x="940" y="196" width="500" height="8" fill="#0A3A66"/>
+    <!-- container ship -->
+    <g class="ship">
+      <g>
+        <rect x="430" y="132" width="34" height="18" fill="#3EC0EC"/><rect x="466" y="132" width="34" height="18" fill="#fff"/>
+        <rect x="502" y="132" width="34" height="18" fill="#0170C1"/><rect x="538" y="132" width="34" height="18" fill="#3EC0EC"/>
+        <rect x="574" y="132" width="34" height="18" fill="#0170C1"/><rect x="610" y="132" width="34" height="18" fill="#fff"/>
+        <rect x="646" y="132" width="34" height="18" fill="#3EC0EC"/>
+        <rect x="430" y="152" width="34" height="18" fill="#0170C1"/><rect x="466" y="152" width="34" height="18" fill="#3EC0EC"/>
+        <rect x="502" y="152" width="34" height="18" fill="#fff"/><rect x="538" y="152" width="34" height="18" fill="#0170C1"/>
+        <rect x="574" y="152" width="34" height="18" fill="#3EC0EC"/><rect x="610" y="152" width="34" height="18" fill="#0170C1"/>
+        <rect x="646" y="152" width="34" height="18" fill="#fff"/><rect x="682" y="152" width="34" height="18" fill="#0170C1"/>
+        <rect x="738" y="118" width="40" height="52" fill="#fff"/><rect x="742" y="124" width="32" height="6" fill="#0A3A66"/>
+        <rect x="750" y="102" width="10" height="16" fill="#0A3A66"/>
+      </g>
+      <path d="M380 170 H820 L796 206 H404 Z" fill="#062B4D"/>
+      <rect x="404" y="174" width="392" height="4" fill="#3EC0EC"/>
+    </g>
+    <!-- water: the logo swoosh, laid flat -->
+    <path d="M0 196 H1440 V260 H0 Z" fill="#062B4D"/>
+    <path d="M-20 214 C 300 186, 760 186, 1460 222" stroke="#0170C1" stroke-width="16" stroke-linecap="round"/>
+    <path d="M-20 236 C 340 210, 800 212, 1460 242" stroke="#3EC0EC" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-20 252 C 380 232, 840 234, 1460 256" stroke="#3EC0EC" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+  </svg>
 </div>
 
+<script>
+  // greeting + date follow the local clock
+  const now = new Date(), h = now.getHours();
+  document.getElementById('hello').textContent =
+    h < 11 ? 'Chào buổi sáng.' : h < 14 ? 'Chào buổi trưa.' : h < 18 ? 'Chào buổi chiều.' : 'Chào buổi tối.';
+  const days = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+  const p2 = n => String(n).padStart(2, '0');
+  document.getElementById('today').textContent =
+    `${days[now.getDay()]}, ${p2(now.getDate())}/${p2(now.getMonth() + 1)}/${now.getFullYear()}`;
+
+  // show / hide password
+  const pw = document.getElementById('pw'), tg = document.getElementById('toggle');
+  tg.addEventListener('click', () => {
+    const show = pw.type === 'password';
+    pw.type = show ? 'text' : 'password';
+    tg.setAttribute('aria-pressed', String(show));
+  });
+
+  // inline validation, then into the app
+  const email = document.getElementById('email');
+  const set = (el, hint, msg) => { el.setAttribute('aria-invalid', msg ? 'true' : 'false'); document.getElementById(hint).textContent = msg; };
+  document.getElementById('f').addEventListener('submit', e => {
+    e.preventDefault();
+    const eOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    set(email, 'email-hint', email.value.trim() ? (eOk ? '' : 'Email chưa đúng định dạng, ví dụ ten@haivanship.com.') : 'Nhập email công ty.');
+    set(pw, 'pw-hint', pw.value ? '' : 'Nhập mật khẩu.');
+    if (!eOk) return email.focus();
+    if (!pw.value) return pw.focus();
+    location.href = 'KeHoachThang.html';
+  });
+</script>
 </body>
 </html>
